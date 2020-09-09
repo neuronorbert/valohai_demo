@@ -22,9 +22,9 @@ def dfs_walk(dir_path):
 
 
 with zipfile.ZipFile(data_path, 'r') as zip_ref:
-    zip_ref.extractall('./data')
+    zip_ref.extractall('.')
 
-dfs_walk('.')
+# dfs_walk('.')
 
 register_coco_instances("fruits_nuts", {}, "./data/trainval.json", "./data/images")
 
