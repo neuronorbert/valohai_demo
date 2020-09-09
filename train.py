@@ -62,7 +62,7 @@ cfg.DATASETS.TEST = ()   # no metrics implemented for this dataset
 cfg.DATALOADER.NUM_WORKERS = 2
 # initialize from model zoo
 cfg.MODEL.WEIGHTS = WEIGHTS_PATH
-cfg.SOLVER.CHECKPOINT_PERIOD = 2
+cfg.SOLVER.LOG_STEP = 2
 cfg.SOLVER.IMS_PER_BATCH = 2
 cfg.SOLVER.BASE_LR = 0.02
 cfg.SOLVER.MAX_ITER = 20    # 300 iterations seems good enough, but you can certainly train longer
