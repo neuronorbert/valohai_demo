@@ -11,6 +11,11 @@ INPUTS_DIR = os.getenv('VH_INPUTS_DIR', './inputs')
 data_path = os.path.join(INPUTS_DIR, 'data/data.zip')
 print(os.listdir(INPUTS_DIR))
 
+for path, dirs, files in os.walk(INPUTS_DIR):
+    print(path)
+    for f in files:
+        print(f)
+
 with zipfile.ZipFile(data_path, 'r') as zip_ref:
     zip_ref.extractall('./data')
 
