@@ -1,0 +1,8 @@
+---
+
+- step:
+    name: Train model (instance-coco-detectron2)
+    image: hsfzxjy/detectron2:py130
+    command: python train.py
+    inputs:
+      - name: data
