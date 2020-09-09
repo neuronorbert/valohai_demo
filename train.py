@@ -5,9 +5,26 @@ from detectron2.config import get_cfg
 from detectron2.engine import DefaultTrainer
 from detectron2.data.datasets import register_coco_instances
 from detectron2.data import MetadataCatalog, DatasetCatalog
+from detectron2.utils.events import EventWriter, get_event_storage
 
 import os
 import zipfile
+import json
+
+
+class ValohaiWriter(EventWriter):
+    def write(self):
+        storage = get_event_storage()
+        latest_event = storage.latest()
+        print(latest_event)
+
+
+class ValohaiTrainer(DefaultTrainer):
+    def build_writers(self):
+        return [
+            ValohaiWriter()
+        ]
+
 
 INPUTS_DIR = os.getenv('VH_INPUTS_DIR', './inputs')
 WEIGHTS_PATH = os.path.join(INPUTS_DIR, 'weights/model_final_f10217.pkl')
@@ -49,6 +66,6 @@ cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3  # 3 classes (data, fig, hazelnut)
 
 cfg.OUTPUT_DIR = '/valohai/outputs'
 #os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
-trainer = DefaultTrainer(cfg)
+trainer = ValohaiTrainer(cfg)
 trainer.resume_or_load(resume=False)
 trainer.train()
