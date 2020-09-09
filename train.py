@@ -10,7 +10,7 @@ import os
 import zipfile
 
 INPUTS_DIR = os.getenv('VH_INPUTS_DIR', './inputs')
-WEIGHTS_PATH = os.join(INPUTS_DIR, 'weights/model_final_f10217.pkl')
+WEIGHTS_PATH = os.path.join(INPUTS_DIR, 'weights/model_final_f10217.pkl')
 data_path = os.path.join(INPUTS_DIR, 'data/data.zip')
 print(os.listdir(INPUTS_DIR))
 
