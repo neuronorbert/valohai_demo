@@ -15,7 +15,7 @@ import json
 class ValohaiWriter(EventWriter):
     def write(self):
         storage = get_event_storage()
-        itr = storage.history("iteration").latest()
+        itr = storage.iteration()
         total_loss = storage.history("total_loss").latest()
         print(json.dumps({
             'iteration': str(itr),
