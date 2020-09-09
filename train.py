@@ -10,6 +10,7 @@ import os
 import zipfile
 
 INPUTS_DIR = os.getenv('VH_INPUTS_DIR', './inputs')
+WEIGHTS_PATH = os.join(INPUTS_DIR, 'weights/model_final_f10217.pkl')
 data_path = os.path.join(INPUTS_DIR, 'data/data.zip')
 print(os.listdir(INPUTS_DIR))
 
@@ -39,8 +40,7 @@ cfg.DATASETS.TRAIN = ("fruits_nuts",)
 cfg.DATASETS.TEST = ()   # no metrics implemented for this dataset
 cfg.DATALOADER.NUM_WORKERS = 2
 # initialize from model zoo
-# cfg.MODEL.WEIGHTS = model_zoo.get_checkpoint_url(
-#    "COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
+cfg.MODEL.WEIGHTS = WEIGHTS_PATH
 cfg.SOLVER.IMS_PER_BATCH = 2
 cfg.SOLVER.BASE_LR = 0.02
 cfg.SOLVER.MAX_ITER = 300    # 300 iterations seems good enough, but you can certainly train longer

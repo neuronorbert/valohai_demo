@@ -6,3 +6,4 @@
     command: python train.py
     inputs:
       - name: data
+      - name: weights
