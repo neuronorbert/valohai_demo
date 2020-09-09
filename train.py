@@ -46,7 +46,8 @@ cfg.SOLVER.MAX_ITER = 300    # 300 iterations seems good enough, but you can cer
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 128   # faster, and good enough for this toy dataset
 cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3  # 3 classes (data, fig, hazelnut)
 
-os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
+cfg.OUTPUT_DIR = '/valohai/outputs'
+#os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
 trainer = DefaultTrainer(cfg)
 trainer.resume_or_load(resume=False)
 trainer.train()
