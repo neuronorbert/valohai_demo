@@ -7,6 +7,11 @@ from detectron2.data.datasets import register_coco_instances
 from detectron2.data import MetadataCatalog, DatasetCatalog
 from detectron2.utils.events import EventWriter, get_event_storage
 
+from PIL import Image
+from werkzeug.debug import DebuggedApplication
+from werkzeug.wrappers import Request, Response
+
+
 import os
 import zipfile
 import json
