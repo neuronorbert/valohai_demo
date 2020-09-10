@@ -7,3 +7,13 @@
     inputs:
       - name: data
       - name: weights
+      
+- endpoint:
+    name: detectron2-predict
+    description: run detectron2 prediction
+    image: hsfzxjy/detectron2:py130
+    wsgi: predictor:predict_wsgi
+    files:
+      - name: model
+        description: Model output file from detectron2
+        path: model_final.pth
