@@ -12,7 +12,6 @@
     name: detectron2-predict
     description: run detectron2 prediction
     image: hsfzxjy/detectron2:py130
-    command: pip install --disable-pip-version-check --quiet werkzeug~=0.14.0 Pillow~=5.1.0
     wsgi: predictor:predict_wsgi
     files:
       - name: model
