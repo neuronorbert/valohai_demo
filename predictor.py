@@ -29,6 +29,7 @@ def init_predictor():
     cfg.DATALOADER.NUM_WORKERS = 2
     # initialize from model zoo
     cfg.MODEL.WEIGHTS = WEIGHTS_PATH
+    cfg.MODEL.DEVICE = 'cpu'
     cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 128   # faster, and good enough for this toy dataset
     cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3  # 3 classes (data, fig, hazelnut)
 
